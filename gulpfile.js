@@ -10,6 +10,7 @@ var gulp          = require("gulp"),
     imagemin      = require("gulp-imagemin"),
     pngquant      = require("imagemin-pngquant"),
     cache         = require("gulp-cache"),
+    htmlreplace = require('gulp-html-replace'),
     plumber       = require('gulp-plumber');
 
 gulp.task("sass", function() {
@@ -59,6 +60,14 @@ gulp.task("clean", function() {
   return del.sync("build");
 });
 
+gulp.task("replace", function() {
+  gulp.src("*.html")
+  .pipe(htmlreplace({
+    "css": "style.min.css"
+  }))
+  .pipe(gulp.dest("build"));
+});
+
 gulp.task("watch", ["browser-sync", "sass"], function() {
   gulp.watch("sass/**/*.scss", ["sass"]);
   gulp.watch("*.html", browserSync.reload);
@@ -69,13 +78,13 @@ gulp.task("watch", ["browser-sync", "sass"], function() {
 
 gulp.task("default", ["watch"]);
 
-gulp.task("build", ["clean", "img", "scripts", "css-min"], function() {
+gulp.task("build", ["clean", "img", "scripts", "css-min", "replace"], function() {
 
   var buildFonts = gulp.src("fonts/**/*")
   .pipe(gulp.dest("build/fonts"));
 
-  var buildHtml = gulp.src("*.html")
-  .pipe(gulp.dest("build"));
+//  var buildHtml = gulp.src("*.html")
+//  .pipe(gulp.dest("build"));
 
 });
 
