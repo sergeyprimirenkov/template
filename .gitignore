@@ -17,11 +17,20 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Other Files
+Thumbs.db
+.idea
+*.sublime*
+*.log
+*.psd
+*.ai
+
 # =========================
 # Directories
 # =========================
 
 node_modules/
+source/
 
 # =========================
 # Operating System Files
