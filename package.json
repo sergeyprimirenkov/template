@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "sedona",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,6 +21,8 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-svgstore": "^6.1.0",
     "gulp-uglifyjs": "^0.6.2",
     "gulp-watch": "^4.3.11",
     "imagemin-pngquant": "^5.0.0"
